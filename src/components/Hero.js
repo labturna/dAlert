@@ -23,8 +23,8 @@ const HeroSection = () => {
                     spacing={isMobile ? 25 : 15}
                     alignItems="center"
                     justifyContent="center"
-                    sx={{ mt: { xs: 4, md: 10 }, mb: { xs: 6, md: 12 } }}
-                >                    {/* Text Content */}
+                    sx={{ mt: { xs: 4, md: 10 }, mb: { xs: 6, md: 15 } }}
+                >
                     <Grid item xs={12} md={6}>
                         <Box>
                             <Typography variant="h2" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>

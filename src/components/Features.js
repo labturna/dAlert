@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Paper } from '@mui/material';
+import { Box, Container, Grid, Typography, Paper, useTheme, useMediaQuery } from '@mui/material';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import LoopIcon from '@mui/icons-material/Loop';
 import SmsIcon from '@mui/icons-material/Sms';
@@ -23,8 +23,11 @@ const features = [
 ];
 
 const FeaturesSection = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
   return (
-    <Box sx={{ py: 5 }}>
+    <Box sx={{ py: { xs: 8, sm: 10 }, pt: { xs: 12, sm: 10 } }}>
       <Container maxWidth="xl">
         <Typography variant="h4" align="center" fontWeight="bold" gutterBottom>
           Why Choose dAlert?
@@ -35,7 +38,7 @@ const FeaturesSection = () => {
 
         <Grid container spacing={4} justifyContent="center">
           {features.map((feature, index) => (
-            <Grid item key={index}>
+            <Grid item key={index} xs={12} sm={6} md={4}>
               <Paper
                 elevation={3}
                 sx={{
@@ -43,7 +46,7 @@ const FeaturesSection = () => {
                   textAlign: 'center',
                   color: 'white',
                   borderRadius: 4,
-                  width: 400,
+                  width: '100%',
                   height: '100%',
                   backdropFilter: 'blur(10px)',
                   background: 'rgba(255, 255, 255, 0.08)',
