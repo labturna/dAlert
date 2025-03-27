@@ -1,22 +1,30 @@
 import React from 'react';
-import { Box, Container, Typography, Button, Grid } from '@mui/material';
+import { Box, Container, Typography, Button, Grid, useTheme, useMediaQuery } from '@mui/material';
 import heroImage from '../assets/hero.png';
 import Navbar from './Navbar';
 
 const HeroSection = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
         <Box
             sx={{
                 minHeight: '100vh',
                 display: 'flex',
                 flexDirection: 'column',
-                py: 10,
+                py: { xs: 4, md: 10 },
             }}
         >
             <Navbar />
-            <Container maxWidth="xl" sx={{ py: { xs: 4, md: 8 }, flexGrow: 1, display: 'flex', alignItems: 'center', marginRight: 8 }}>
-                <Grid container spacing={15} alignItems="center" justifyContent="center">
-                    {/* Text Content */}
+            <Container maxWidth="xl" sx={{ flexGrow: 1, display: 'flex', alignItems: 'center' }}>
+                <Grid
+                    container
+                    spacing={isMobile ? 25 : 15}
+                    alignItems="center"
+                    justifyContent="center"
+                    sx={{ mt: { xs: 4, md: 10 }, mb: { xs: 6, md: 12 } }}
+                >                    {/* Text Content */}
                     <Grid item xs={12} md={6}>
                         <Box>
                             <Typography variant="h2" fontWeight="bold" gutterBottom sx={{ fontSize: { xs: '2rem', md: '3rem' } }}>
@@ -47,8 +55,8 @@ const HeroSection = () => {
                             className="gradient-border"
                             sx={{
                                 display: 'flex',
-                                justifyContent: { xs: 'center', md: 'flex-end' },
-                                mt: { xs: 4, md: 0 },
+                                justifyContent: 'center',
+                                padding: { xs: '2rem 0', md: 0 },
                             }}
                         >
                             <img
